@@ -1,0 +1,33 @@
+<section>
+    <form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+        <div class="container">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" name="Name">
+
+                <label>Description</label>
+                <input class="form-control" type="text" name="Description">
+
+                <label>Category</label>
+                <input class="form-control" type="text" name="Category">
+
+                <label>Price</label>
+                <input class="form-control" type="number" name="Price">
+
+                <label class="mt-4">Upload image</label><br>
+                <img style="width: 50px;height:50px" alt="..." id="imgView"><br>
+                <input type="file" name="image" class="form-control mt-4" onchange="viewImg(event)" >
+                <label class="text-danger">Make sure width and height are same</label>
+            </div>
+            <div class="row mt-4">
+            <button class="btn btn-success mt-4" type="submit">Add Product</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script>
+    function viewImg(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

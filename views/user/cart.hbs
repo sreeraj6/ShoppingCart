@@ -1,0 +1,95 @@
+<section class="h-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Cart - {{cartCount}} items</h5>
+          </div>
+         {{#each products}}
+          <div class="card-body">
+            <!-- Single item -->
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <!-- Image -->
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="/images/{{this.product._id}}.png"
+                    class="w-100" alt="Blue Jeans Jacket" />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                  </a>
+                </div>
+                <!-- Image -->
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <!-- Data -->
+                <p><strong>{{this.product.Name}}</strong></p>
+                <p>{{this.product.Description}}</p>
+               <!-- <p>Size: M</p>-->
+                <button type="button" onclick="removeItem('{{this._id}}','{{this.product._id}}')" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip">
+                  <i class="fas fa-trash"></i>
+                  Remove
+                </button>
+                <!-- Data -->
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+                <div class="d-flex mb-4 pb-2" style=" max-width: 300px">
+                  <button class="btn btn-primary px-3 me-2"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">
+                   <strong>-</strong>
+                  </button>
+
+                  <div class="form-outline">
+                    <label id="{{this.product._id}}" min="0" name="quantity"  class="form-control" >{{this.quantity}}</label>
+                    <label class="form-label" for="form1">Quantity</label>
+                  </div>
+
+                  <button class="btn btn-primary px-3 ms-2"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">
+                    <strong>+</strong>
+                  </button>
+                </div>
+                <!-- Quantity -->
+
+                <!-- Price -->
+                <p class="text-start " style="font-size: 1.5rem;">
+                  <strong>Rs.{{this.product.Price}}</strong>
+                </p>
+                <!-- Price -->
+              </div>
+            </div>
+            <!-- Single item -->
+            <hr>
+   <!--============================================================================================================================================-->        
+          </div>
+          {{/each}}
+          <div class=" mb-5">
+          <div class=" p-4">
+          {{#if products}}
+            <div class="float-end">
+              <p class="mb-0 me-5 d-flex align-items-center">
+                <span class="lead fw-normal me-2"><strong> Total Cost: Rs.</strong></span><span class="lead fw-normal" id="total"><strong>{{total}}</strong></span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+        </div>
+        <div class="d-flex justify-content-end m-1">
+          <a href="/"  class="btn btn-light btn-lg me-2">Continue shopping</a>
+          <a href="/order-now" class="btn btn-primary btn-lg">Order now</a>
+        </div>
+        {{/if}}
+    </div>
+    
+   
+  </div>
+  
+</section>
+
+<script>
+  
+ 
+</script>
